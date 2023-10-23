@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('/josee-to-tora-to-sakana-tachi-the-tiger-and-the-fish.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+              overflow: hidden;
+        }
+        .bubble {
+  width: 20px;
+  height: 20px;
+  top: 50vh;
+  left: 50vw;
+  position: absolute;
+  animation: float 5s infinite;
+
+}
+img{
+    width: 50px;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.long{
+    width: 100px;
+    position: absolute;
+    top: 87vh;
+    animation: move 5s infinite
+}
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(1500%);
+  }
+}
+.long1 {
+  width: 100px;
+  position: absolute;
+  top: 87vh;
+  animation: move 5s infinite;
+  visibility: hidden; /* Ẩn ban đầu */
+}
+
+    </style>
+</head>
+<body>
+    <span class="bubble"><img src="/trai-tim-lap-lanh_121246613.gif" alt=""></span>
+    <img src="giphy.gif" class="long">
+    <span class="long1" style="color: red;">Dòng chữ hiển thị</span>
+    <script>
+function createBubble() {
+  const bubble = document.createElement('div');
+  bubble.classList.add('bubble');
+
+  const img = document.createElement('img');
+  img.src = '/trai-tim-lap-lanh_121246613.gif';
+  img.alt = '';
+
+  bubble.appendChild(img);
+
+  const randomPosition = Math.floor(Math.random() * window.innerWidth);
+  bubble.style.left = `${randomPosition}px`;
+
+  document.body.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.remove();
+  }, 5000);
+}
+
+setInterval(createBubble, 1000);
+const longElement = document.querySelector('.long');
+const animationDuration = 5; // Thời gian di chuyển (s)
+const animationDelay = 0.1; // Độ trễ hiển thị (s)
+
+setTimeout(() => {
+  longElement.style.visibility = 'visible'; // Hiển thị dòng chữ
+}, animationDuration * 1000 * animationDelay);
+    </script>
+</body>
+</html>
